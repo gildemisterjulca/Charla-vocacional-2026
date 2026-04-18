@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Construyendo mi Futuro Profesional – UNIFSLB</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<div class="pattern-bar"></div>
+
+<!-- ═══════════════════════════════════════
+     HERO / PORTADA
+════════════════════════════════════════ -->
+<section id="heroSection">
+  <img src="assets/imagenes/logo.svg" alt="Logo UNIFSLB" class="hero-logo-flotante"/>
+  <canvas id="heroCanvas"></canvas>
+  <img src="assets/imagenes/PORTADA.png" alt="Portada UNIFSLB" class="hero-portada-bg"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="badge-uni">🌿 UNIFSLB · Bagua, Amazonas, Perú</div>
+    <h1 class="hero-title">Construyendo<br>mi <span>Futuro</span><br>Profesional</h1>
+    <p class="hero-sub">
+      Educación Tecnológica<br>
+      <strong style="color:var(--cian)">Especialidad: Computación e Informática</strong><br>
+      Charla vocacional para estudiantes de 4.° y 5.° de secundaria<br>de Bagua y Utcubamba
+    </p>
+    <div class="hero-btns">
+      <button class="btn btn-primary" onclick="jumpSection('slidesSection')">📊 Ver Presentación</button>
+      <button class="btn btn-secondary" onclick="jumpSection('juegoPromoSection')">🎮 Jugar y Aprender</button>
+    </div>
+    <div class="hero-chips">
+      <span class="chip">🎓 10 semestres</span>
+      <span class="chip">📘 214 créditos</span>
+      <span class="chip">🌐 Enfoque intercultural</span>
+      <span class="chip">🏹 Cultura Awajún · Wampis</span>
+      <span class="chip">💼 Licenciado en Educación</span>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    Explorar
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PERFILES DE ESTUDIANTES
+════════════════════════════════════════ -->
+<section id="perfilesSection">
+  <div style="max-width:1100px;margin:0 auto;padding:0 1.5rem;text-align:center;margin-bottom:3rem;">
+    <div class="section-label">👨‍🎓 Equipo Expositor</div>
+    <h2 class="section-title">Nuestros <span style="color:var(--cian)">Estudiantes</span></h2>
+    <p class="section-desc" style="margin:0 auto 0;">Conoce al equipo que hace posible esta presentación vocacional.</p>
+  </div>
+  <div class="perfiles-grid">
+
+    <!-- Perfil 1: Gildemeister -->
+    <div class="profile-card">
+      <div class="profile-photo-wrap">
+        <img src="assets/imagenes/Gildemeister.svg" alt="Gildemeister Julca Ramos"/>
+        <div class="profile-badge">🏹</div>
+      </div>
+      <div class="profile-info">
+        <div class="profile-name">Gildemeister Julca Ramos</div>
+        <div class="profile-career">Educación Tecnológica</div>
+        <span class="profile-cycle">VI Ciclo</span>
+      </div>
+    </div>
+
+    <!-- Perfil 2: Xiomara -->
+    <div class="profile-card">
+      <div class="profile-photo-wrap">
+        <img src="assets/imagenes/xiomara.jpeg" alt="Xiomara Guadalupe Mejia Uriol"/>
+        <div class="profile-badge">🌿</div>
+      </div>
+      <div class="profile-info">
+        <div class="profile-name">Xiomara Guadalupe Mejia Uriol</div>
+        <div class="profile-career">Educación Tecnológica</div>
+        <span class="profile-cycle">V Ciclo</span>
+      </div>
+    </div>
+
+    <!-- Perfil 3: Roberto -->
+    <div class="profile-card">
+      <div class="profile-photo-wrap">
+        <img src="assets/imagenes/roberto.jpeg" alt="Roberto Regulo Zuñiga Ayala"/>
+        <div class="profile-badge">💻</div>
+      </div>
+      <div class="profile-info">
+        <div class="profile-name">Roberto Regulo Zuñiga Ayala</div>
+        <div class="profile-career">Educación Tecnológica</div>
+        <span class="profile-cycle">VI Ciclo</span>
+      </div>
+    </div>
+
+    <!-- Perfil 4: Sugka -->
+    <div class="profile-card">
+      <div class="profile-photo-wrap">
+        <img src="assets/imagenes/sugka.jpeg" alt="Sugka Eleodan Ugkum Majuash"/>
+        <div class="profile-badge">🌎</div>
+      </div>
+      <div class="profile-info">
+        <div class="profile-name">Sugka Eleodan Ugkum Majuash</div>
+        <div class="profile-career">Educación Tecnológica</div>
+        <span class="profile-cycle">VI Ciclo</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     NAV STICKY
+════════════════════════════════════════ -->
+<nav class="section-nav" id="mainNav">
+  <span class="nav-label active" data-section="slidesSection" onclick="jumpSection('slidesSection')">📊 Exposición</span>
+  <span class="nav-label" data-section="campoSection" onclick="jumpSection('campoSection')">💼 Campo Laboral</span>
+  <span class="nav-label" data-section="bibliotecaSection" onclick="jumpSection('bibliotecaSection')">📚 Biblioteca</span>
+  <span class="nav-label" data-section="juegoPromoSection" onclick="jumpSection('juegoPromoSection')">🎮 Juego</span>
+  <span class="nav-label" data-section="gameSection" onclick="jumpSection('gameSection')">🧩 Trivia</span>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     EXPOSICIÓN — SLIDES
+════════════════════════════════════════ -->
+<div id="slidesSection">
+<div class="section">
+  <div class="section-label">📊 Exposición — Diapositivas</div>
+  <h2 class="section-title">Conoce la Carrera de <span style="color:var(--cian)">Educación Tecnológica</span></h2>
+  <p class="section-desc"></p>
+
+  <div class="slide-wrapper">
+    <div class="slide-progress"><div class="slide-progress-fill" id="slideProgress" style="width:12.5%"></div></div>
+    <div class="slides-container">
+
+      <!-- SLIDE 1 -->
+      <div class="slide active" data-slide="0">
+        <div class="slide-num">Diapositiva 01 / 08</div>
+        <div class="slide-emoji">🚀</div>
+        <h2 class="slide-heading">¿Qué es la carrera de<br><span class="accent">Educación Tecnológica?</span></h2>
+        <div class="slide-body">
+          Es una carrera de la <strong>Universidad Nacional Intercultural Fabiola Salazar Leguía de Bagua (UNIFSLB)</strong> que forma docentes especializados en tecnología, con énfasis en <strong style="color:var(--cian)">Computación e Informática</strong>.<br><br>
+          Su enfoque es único: combina la <strong>excelencia tecnológica</strong> con el <strong>respeto por la identidad intercultural amazónica</strong>, valorando los saberes de los pueblos Awajún y Wampis.
+        </div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="slide" data-slide="1">
+        <div class="slide-num">Diapositiva 02 / 08</div>
+        <h2 class="slide-heading">🎯 Objetivos de la <span class="accent">Carrera</span></h2>
+        <div class="slide-body">Formar integralmente profesionales comprometidos con la <strong>docencia, investigación y responsabilidad social</strong>.</div>
+        <div class="slide-cards">
+          <div class="slide-card"><div class="slide-card-icon">💡</div><div class="slide-card-title">Innovación Educativa</div><div class="slide-card-desc">Metodologías pedagógicas modernas integradas con tecnología.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🌿</div><div class="slide-card-title">Identidad Intercultural</div><div class="slide-card-desc">Valoración y preservación de la cultura Awajún y Wampis.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🔬</div><div class="slide-card-title">Investigación</div><div class="slide-card-desc">Genera conocimiento en educación intercultural y tecnológica.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🤝</div><div class="slide-card-title">Alianzas Estratégicas</div><div class="slide-card-desc">Vínculos con comunidades y organizaciones interculturales.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🚀</div><div class="slide-card-title">Emprendimiento</div><div class="slide-card-desc">Proyectos tecnológicos que impulsan el desarrollo local.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">📈</div><div class="slide-card-title">Mejora Continua</div><div class="slide-card-desc">Evaluación constante para garantizar una formación de excelencia.</div></div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="slide" data-slide="2">
+        <div class="slide-num">Diapositiva 03 / 08</div>
+        <h2 class="slide-heading">👤 Perfil del <span class="accent">Ingresante</span></h2>
+        <div class="slide-body">¿Esta carrera es para ti? Conoce el perfil ideal:</div>
+        <div class="tag-list">
+          <span class="tag">📐 Matemática y Física básica</span>
+          <span class="tag">💻 Manejo básico de computadoras</span>
+          <span class="tag">🖥️ Principios de Programación</span>
+          <span class="tag amber">🗣️ Expresión en lengua originaria y español</span>
+          <span class="tag amber">📚 Conocimiento de Ciencias Sociales</span>
+          <span class="tag purple">❤️ Pasión por la tecnología y la enseñanza</span>
+          <span class="tag purple">👥 Trabajo en equipo</span>
+          <span class="tag red">🎯 Espíritu perseverante</span>
+          <span class="tag red">🚀 Actitud proactiva y autoaprendizaje</span>
+        </div>
+        <div class="slide-body" style="margin-top:1.2rem;font-size:.9rem;color:rgba(255,255,255,.55)">
+          ¡Si amas la tecnología y quieres enseñar con impacto real en tu comunidad, esta carrera es tuya!
+        </div>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="slide" data-slide="3">
+        <div class="slide-num">Diapositiva 04 / 08</div>
+        <h2 class="slide-heading">📚 ¿Qué <span class="accent">Aprenderás?</span></h2>
+        <div class="slide-body">En <strong>10 semestres y 214 créditos</strong> desarrollarás competencias en áreas clave:</div>
+        <div class="slide-cards" style="margin-top:1.2rem">
+          <div class="slide-card"><div class="slide-card-icon">🖥️</div><div class="slide-card-title">Computación e Informática</div><div class="slide-card-desc">Programación, redes, sistemas y bases de datos.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🎓</div><div class="slide-card-title">Ciencias de la Educación</div><div class="slide-card-desc">Pedagogía, didáctica, currículo y gestión educativa.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🌐</div><div class="slide-card-title">TIC Educativas</div><div class="slide-card-desc">Herramientas digitales, aulas virtuales y e-learning.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🏹</div><div class="slide-card-title">Educación Intercultural</div><div class="slide-card-desc">Lenguas nativas, derechos y cosmovisión amazónica.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🔭</div><div class="slide-card-title">Investigación Científica</div><div class="slide-card-desc">Metodología científica y elaboración de tesis.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">💼</div><div class="slide-card-title">Emprendimiento</div><div class="slide-card-desc">Proyectos tecnológicos para el desarrollo regional.</div></div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5 -->
+      <div class="slide" data-slide="4">
+        <div class="slide-num">Diapositiva 05 / 08</div>
+        <div class="slide-emoji">🎓</div>
+        <h2 class="slide-heading">Perfil del <span class="accent">Egresado</span></h2>
+        <div class="slide-body">Al graduarte serás un <strong>profesional altamente capacitado</strong> capaz de:</div>
+        <ul class="steps">
+          <li><div class="step-num">1</div><div class="step-text">Aplicar conocimientos científicos de las ciencias formales y pedagógicas en el campo tecnológico.</div></li>
+          <li><div class="step-num">2</div><div class="step-text">Usar las TIC y procesos automatizados para <strong>resolver problemas educativos reales</strong>.</div></li>
+          <li><div class="step-num">3</div><div class="step-text">Diseñar <strong>recursos y materiales didácticos digitales</strong> que promuevan el aprendizaje significativo.</div></li>
+          <li><div class="step-num">4</div><div class="step-text">Enseñar con estrategias innovadoras adaptadas a diferentes <strong>niveles y modalidades educativas</strong>.</div></li>
+          <li><div class="step-num">5</div><div class="step-text">Contribuir al <strong>desarrollo sostenible</strong> con identidad intercultural amazónica.</div></li>
+        </ul>
+      </div>
+
+      <!-- SLIDE 6 -->
+      <div class="slide" data-slide="5">
+        <div class="slide-num">Diapositiva 06 / 08</div>
+        <h2 class="slide-heading">🏛️ Graduación y <span class="accent">Titulación</span></h2>
+        <div class="slide-body">Tu camino al título profesional en dos etapas:</div>
+        <div class="slide-cards" style="margin-top:1.5rem;grid-template-columns:1fr 1fr">
+          <div class="slide-card" style="border-color:rgba(245,166,35,.3);background:rgba(245,166,35,.06)">
+            <div class="slide-card-icon">📜</div>
+            <div class="slide-card-title" style="color:var(--ambar)">Grado de Bachiller</div>
+            <div class="slide-card-desc">✔ 10 semestres académicos<br>✔ 214 créditos aprobados<br>✔ Idioma extranjero o lengua nativa<br>✔ Requisitos del reglamento UNIFSLB</div>
+          </div>
+          <div class="slide-card" style="border-color:rgba(0,229,176,.3);background:rgba(0,229,176,.07)">
+            <div class="slide-card-icon">🎓</div>
+            <div class="slide-card-title">Título Profesional</div>
+            <div class="slide-card-desc">✔ Grado de Bachiller previo<br>✔ Aprobación de tesis<br>✔ Requisitos reglamentarios<br><br><strong style="color:var(--cian)">Licenciado en Educación,<br>Esp. Computación e Informática</strong></div>
+          </div>
+        </div>
+        <div style="margin-top:1.2rem">
+          <a href="https://www.unibagua.edu.pe/uploads/escuelas/edt/malla-curricular-edt.pdf" target="_blank" class="btn btn-secondary" style="display:inline-flex;font-size:.85rem;padding:.6rem 1.3rem">📄 Ver Malla Curricular PDF</a>
+        </div>
+      </div>
+
+      <!-- SLIDE 7 -->
+      <div class="slide" data-slide="6">
+        <div class="slide-num">Diapositiva 07 / 08</div>
+        <div class="slide-emoji">💼</div>
+        <h2 class="slide-heading">¿Dónde <span class="accent">Trabajarás?</span></h2>
+        <div class="slide-body">El campo laboral del egresado es amplio y muy demandado en nuestra región:</div>
+        <div class="slide-cards">
+          <div class="slide-card"><div class="slide-card-icon">🏫</div><div class="slide-card-title">Docente</div><div class="slide-card-desc">Colegios públicos y privados en el área de Computación e Informática.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🌐</div><div class="slide-card-title">Consultor TIC</div><div class="slide-card-desc">Implementación de tecnología en instituciones educativas.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🏢</div><div class="slide-card-title">Sector Público</div><div class="slide-card-desc">UGEL, DRE, Ministerio de Educación y municipalidades.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🚀</div><div class="slide-card-title">Emprendedor</div><div class="slide-card-desc">Academia de cómputo, software educativo y capacitaciones.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🏹</div><div class="slide-card-title">Comunidades Nativas</div><div class="slide-card-desc">Proyectos tecnológicos en comunidades Awajún y Wampis.</div></div>
+          <div class="slide-card"><div class="slide-card-icon">🔬</div><div class="slide-card-title">Investigador</div><div class="slide-card-desc">Educación intercultural, tecnología y desarrollo regional.</div></div>
+        </div>
+      </div>
+
+      <!-- SLIDE 8 -->
+      <div class="slide" data-slide="7">
+        <div class="slide-num">Diapositiva 08 / 08</div>
+        <div class="slide-emoji">🌿</div>
+        <h2 class="slide-heading">¿Por qué elegir <span class="accent">UNIFSLB?</span></h2>
+        <div class="slide-body">La única universidad con enfoque intercultural amazónico en la región.</div>
+        <ul class="steps">
+          <li><div class="step-num">🏹</div><div class="step-text"><strong>Identidad amazónica:</strong> Aprendes junto a estudiantes y docentes Awajún y Wampis, enriqueciendo tu formación cultural.</div></li>
+          <li><div class="step-num">📍</div><div class="step-text"><strong>Local y accesible:</strong> Jirón Ancash N° 520, Bagua, Amazonas. Tu universidad, en tu región.</div></li>
+          <li><div class="step-num">🎓</div><div class="step-text"><strong>Calidad académica:</strong> Docentes comprometidos con la investigación, la innovación y la mejora continua.</div></li>
+          <li><div class="step-num">💡</div><div class="step-text"><strong>Beca 18:</strong> Posibilidad de financiar tus estudios con el programa del Estado Peruano.</div></li>
+          <li><div class="step-num">🌎</div><div class="step-text"><strong>Impacto real:</strong> Formas parte del cambio y el desarrollo sostenible de Bagua y Utcubamba.</div></li>
+        </ul>
+        <div style="margin-top:1.5rem;display:flex;gap:.8rem;flex-wrap:wrap">
+          <a href="https://www.unibagua.edu.pe/facultades/ciencias-sociales-y-empresariales/educacion-tecnologica" target="_blank" class="btn btn-primary" style="display:inline-flex">🔗 Sitio Oficial UNIFSLB</a>
+          <a href="https://www.unibagua.edu.pe/academico/admision/examen-ordinario" target="_blank" class="btn btn-secondary" style="display:inline-flex">📝 Admisión 2026-I</a>
+        </div>
+      </div>
+
+    </div><!-- end slides-container -->
+    <div class="slide-controls">
+      <div class="slide-arrows">
+        <button class="arrow-btn" id="prevSlideBtn" onclick="changeSlide(-1)" disabled>◀</button>
+        <button class="arrow-btn" id="nextSlideBtn" onclick="changeSlide(1)">▶</button>
+      </div>
+      <div class="slide-dots" id="slideDots"></div>
+    </div>
+  </div>
+
+  <!-- Q&A de reflexión -->
+  <div class="qna-panel">
+    <h3>❓ Preguntas de Reflexión</h3>
+    <div class="qna-grid" id="qnaGrid"></div>
+  </div>
+
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     CAMPO LABORAL
+════════════════════════════════════════ -->
+<section id="campoSection">
+<div class="campo-inner">
+  <div class="section-label">💼 Oportunidades Profesionales</div>
+  <h2 class="section-title">Campo <span style="color:var(--cian)">Laboral</span></h2>
+  <p class="section-desc">
+    El egresado de Educación Tecnológica cuenta con un campo laboral amplio y en constante crecimiento. La integración de la tecnología en la educación abre puertas en el sector público y privado, en comunidades nativas y en el emprendimiento digital regional.
+  </p>
+  <div class="campo-grid">
+    <div class="campo-card">
+      <div class="campo-icon">🏫</div>
+      <div class="campo-title">Docencia en Informática</div>
+      <div class="campo-desc">Enseña en instituciones educativas públicas y privadas de nivel secundario y superior en el área de Computación e Informática.</div>
+    </div>
+    <div class="campo-card">
+      <div class="campo-icon">🏢</div>
+      <div class="campo-title">Sector Público</div>
+      <div class="campo-desc">Trabaja en UGEL, DRE, Ministerio de Educación, municipalidades y gobiernos regionales como especialista en TIC.</div>
+    </div>
+    <div class="campo-card">
+      <div class="campo-icon">🌐</div>
+      <div class="campo-title">Consultor TIC</div>
+      <div class="campo-desc">Asesora en la implementación de tecnología educativa, plataformas virtuales y recursos digitales en instituciones.</div>
+    </div>
+    <div class="campo-card">
+      <div class="campo-icon">🚀</div>
+      <div class="campo-title">Emprendimiento Digital</div>
+      <div class="campo-desc">Crea tu propia academia de cómputo, desarrolla software educativo o brinda capacitaciones tecnológicas en la región.</div>
+    </div>
+    <div class="campo-card">
+      <div class="campo-icon">🏹</div>
+      <div class="campo-title">Comunidades Nativas</div>
+      <div class="campo-desc">Lidera proyectos de inclusión digital en comunidades Awajún y Wampis, impulsando el desarrollo intercultural.</div>
+    </div>
+    <div class="campo-card">
+      <div class="campo-icon">🔬</div>
+      <div class="campo-title">Investigación Educativa</div>
+      <div class="campo-desc">Desarrolla investigaciones sobre educación intercultural, tecnología y desarrollo sostenible en la Amazonía.</div>
+    </div>
+  </div>
+  <div class="campo-cta">
+    <div>
+      <p style="color:rgba(255,255,255,.65);font-size:.95rem;margin-bottom:.5rem;">¿Quieres explorar más oportunidades laborales en detalle?</p>
+    </div>
+    <a href="campo_laboral.html" class="btn btn-primary" target="_blank">💼 Ver Página de Campo Laboral</a>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     BIBLIOTECA
+════════════════════════════════════════ -->
+<section id="bibliotecaSection">
+<div class="bib-inner">
+  <div class="section-label">📚 Recursos Académicos</div>
+  <h2 class="section-title">Nuestra <span style="color:#a78bfa)">Biblioteca</span></h2>
+  <p class="section-desc">
+    Accede a una colección curada de recursos académicos sobre las áreas que dan vida a nuestra carrera. Desde programación hasta neuroeducación, tenemos el material que necesitas para crecer como futuro docente tecnológico.
+  </p>
+  <div class="bib-books">
+    <div class="bib-book">
+      <div class="bib-book-icon">💻</div>
+      <div class="bib-book-body">
+        <div class="bib-book-title">Programación e Informática</div>
+        <div class="bib-book-desc">Libros sobre algoritmos, lenguajes de programación, desarrollo de software y fundamentos de computación para la enseñanza tecnológica.</div>
+      </div>
+    </div>
+    <div class="bib-book">
+      <div class="bib-book-icon">🎓</div>
+      <div class="bib-book-body">
+        <div class="bib-book-title">Enseñanza y Aprendizaje</div>
+        <div class="bib-book-desc">Recursos sobre pedagogía moderna, didáctica digital, metodologías activas y diseño instruccional para entornos tecnológicos.</div>
+      </div>
+    </div>
+    <div class="bib-book">
+      <div class="bib-book-icon">🧠</div>
+      <div class="bib-book-body">
+        <div class="bib-book-title">Neuroeducación</div>
+        <div class="bib-book-desc">Literatura sobre el funcionamiento del cerebro en el aprendizaje, inteligencias múltiples y estrategias cognitivas basadas en neurociencia.</div>
+      </div>
+    </div>
+    <div class="bib-book">
+      <div class="bib-book-icon">🌿</div>
+      <div class="bib-book-body">
+        <div class="bib-book-title">Educación Intercultural</div>
+        <div class="bib-book-desc">Textos sobre educación bilingüe intercultural, cosmovisión amazónica, derechos de los pueblos originarios y desarrollo comunitario.</div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+    <div>
+      <p style="color:rgba(255,255,255,.65);font-size:.95rem;margin-bottom:.5rem;">Accede al catálogo completo de la biblioteca de la UNIFSLB.</p>
+    </div>
+    <a href="https://biblioteca.unibagua.edu.pe/" target="_blank" class="btn btn-primary" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);box-shadow:0 8px 30px rgba(124,58,237,.35);">
+      📚 Ir a la Biblioteca UNIFSLB
+    </a>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     JUEGO INTERACTIVO — PROMO
+════════════════════════════════════════ -->
+<section id="juegoPromoSection">
+<div class="juego-inner">
+  <div class="section-label">🎮 Aprendizaje Gamificado</div>
+  <h2 class="section-title">¡<span style="color:var(--cian)">Aprende</span> Jugando!</h2>
+  <p class="section-desc" style="margin:0 auto 2rem;">
+    Hemos creado un juego interactivo diseñado especialmente para que explores el fascinante mundo de la educación tecnológica de forma divertida. Completa retos, gana puntos y descubre si la carrera es para ti.
+  </p>
+
+  <div class="juego-preview">
+    <div style="font-size:3.5rem;margin-bottom:1rem">🕹️</div>
+    <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.5rem;margin-bottom:1rem;color:var(--cian)">Aprendemos Jugando</h3>
+    <p style="color:rgba(255,255,255,.75);line-height:1.85;margin-bottom:1.5rem;">
+      Un juego interactivo que te lleva a través de desafíos sobre tecnología, educación e interculturalidad amazónica. Pon a prueba tus conocimientos, desbloquea nuevos niveles y comprueba cuánto sabes sobre el futuro que te espera como docente tecnológico.
+    </p>
+    <div class="juego-features">
+      <div class="juego-feat">
+        <div class="juego-feat-icon">🎯</div>
+        <div class="juego-feat-label">Retos por Niveles</div>
+      </div>
+      <div class="juego-feat">
+        <div class="juego-feat-icon">⭐</div>
+        <div class="juego-feat-label">Sistema de Puntos</div>
+      </div>
+      <div class="juego-feat">
+        <div class="juego-feat-icon">🏆</div>
+        <div class="juego-feat-label">Logros y Premios</div>
+      </div>
+      <div class="juego-feat">
+        <div class="juego-feat-icon">📱</div>
+        <div class="juego-feat-label">Juego en Línea</div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://julcajhimy-tech.github.io/aprendemos-jugando/" target="_blank" class="btn btn-primary" style="font-size:1.1rem;padding:1.1rem 2.8rem;box-shadow:0 10px 40px rgba(0,229,176,.45);">
+    🚀 ¡Jugar Ahora!
+  </a>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     TRIVIA / GAME INTERNO
+════════════════════════════════════════ -->
+<section id="gameSection">
+<div class="section">
+  <div class="section-label">🧩 Test de Conocimientos</div>
+  <h2 class="section-title">Trivia: <span style="color:var(--cian)">¿Cuánto Sabes?</span></h2>
+  <p class="section-desc">10 preguntas sobre la carrera y la UNIFSLB. ¡20 segundos por pregunta, responde rápido y suma más puntos!</p>
+
+  <div class="score-bar">
+    <div class="score-item">
+      <span class="score-icon">⭐</span>
+      <div><div class="score-val" id="scoreDisplay">0</div><div class="score-label">Puntos</div></div>
+    </div>
+    <div class="score-item">
+      <span class="score-icon">📋</span>
+      <div><div class="score-val" id="questionCounter">1 / 10</div><div class="score-label">Pregunta</div></div>
+    </div>
+    <div class="score-item">
+      <span class="score-icon">🔥</span>
+      <div><div class="score-val" id="streakDisplay">0</div><div class="score-label">Racha</div></div>
+    </div>
+    <div class="timer-ring">
+      <svg width="52" height="52" viewBox="0 0 52 52">
+        <circle class="timer-bg" cx="26" cy="26" r="22"/>
+        <circle class="timer-fg" id="timerRing" cx="26" cy="26" r="22" stroke-dasharray="138.23" stroke-dashoffset="0"/>
+      </svg>
+      <div class="timer-text" id="timerText">20</div>
+    </div>
+  </div>
+
+  <div id="questionArea">
+    <div class="question-card" id="questionCard">
+      <div class="q-cat" id="qCategory">Categoría</div>
+      <div class="q-text" id="qText">Pregunta</div>
+      <div class="options-grid" id="optionsGrid"></div>
+      <div class="feedback-toast" id="feedbackToast"></div>
+      <button class="next-btn" id="nextQBtn" onclick="nextQuestion()">Siguiente pregunta →</button>
+    </div>
+  </div>
+
+  <div id="resultsScreen">
+    <span class="results-trophy" id="resultsTrophy">🏆</span>
+    <div class="results-score" id="finalScore">0</div>
+    <div class="results-label" id="finalOutOf">de 150 puntos</div>
+    <div class="results-message" id="resultsMessage"></div>
+    <div class="results-btns">
+      <button class="btn btn-primary" onclick="restartGame()">🔄 Jugar de nuevo</button>
+      <button class="btn btn-secondary" onclick="jumpSection('slidesSection')">📊 Repasar diapositivas</button>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<canvas id="confettiCanvas" style="display:none;position:fixed;inset:0;pointer-events:none;z-index:9999;"></canvas>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">UNI<span>FSL</span>B</div>
+  <div class="footer-sub">Universidad Nacional Intercultural Fabiola Salazar Leguía de Bagua · Amazonas, Perú<br>
+  Jirón Ancash N° 520, Bagua · (+51) 939 571 296<br>
+  Proyecto: "Construyendo mi Futuro Profesional"</div>
+  <div class="footer-links">
+    <a href="https://www.unibagua.edu.pe" target="_blank">🌐 Sitio Oficial</a>
+    <a href="https://www.unibagua.edu.pe/academico/admision/examen-ordinario" target="_blank">📝 Admisión 2026-I</a>
+    <a href="https://www.facebook.com/unifslboficial" target="_blank">📘 Facebook</a>
+    <a href="https://www.youtube.com/@unifslb-oficial/playlists" target="_blank">▶️ YouTube</a>
+  </div>
+  <div style="margin-top:1.5rem;font-size:.75rem;color:rgba(255,255,255,.2)">
+    Charla vocacional para estudiantes de secundaria de Bagua y Utcubamba · Escuela Profesional de Educación Tecnológica
+  </div>
+</footer>
+<div class="pattern-bar"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
