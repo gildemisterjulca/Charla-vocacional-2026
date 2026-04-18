@@ -104,6 +104,14 @@ a { color: var(--cian); text-decoration: none; }
   background: linear-gradient(90deg, transparent, rgba(0,229,176,.3), transparent);
 }
 
+.section-header {
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+
 /* ── HERO / PORTADA ── */
 #heroSection {
   position: relative;
@@ -344,6 +352,7 @@ a { color: var(--cian); text-decoration: none; }
   gap: 1.2rem;
   padding: 1rem 1rem;
   background: rgba(12,61,46,.75);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
@@ -400,12 +409,21 @@ a { color: var(--cian); text-decoration: none; }
 .slide-heading { font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 900; margin-bottom: 1.4rem; line-height: 1.2; letter-spacing: -.02em; }
 .slide-heading .accent { color: var(--cian); }
 .slide-body { color: rgba(255,255,255,.88); font-size: clamp(.95rem, 1.8vw, 1.1rem); line-height: 1.9; max-width: 760px; font-weight: 400; }
+.slide-body-custom {
+  margin-top: 1.2rem;
+  font-size: .9rem;
+  color: rgba(255,255,255,.55);
+}
 .slide-emoji { font-size: 3rem; margin-bottom: 1rem; animation: floatEmoji 3s ease-in-out infinite; }
 .slide-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   margin-top: 1.2rem;
+}
+.slide-cards-2-cols {
+  margin-top: 1.5rem;
+  grid-template-columns: 1fr 1fr;
 }
 .slide-card {
   background: rgba(0,229,176,.07);
@@ -414,6 +432,18 @@ a { color: var(--cian); text-decoration: none; }
   padding: 1.2rem;
   transition: background var(--trans);
 }
+.slide-card--orange {
+  border-color: rgba(245,166,35,.3);
+  background: rgba(245,166,35,.06);
+}
+
+.button-group {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+
 .slide-card:hover { background: rgba(0,229,176,.13); }
 .slide-card-icon { font-size: 1.7rem; margin-bottom: .5rem; }
 .slide-card-title { font-size: .9rem; font-weight: 700; color: var(--cian); margin-bottom: .4rem; font-family: 'Montserrat', sans-serif; }
@@ -513,7 +543,6 @@ a { color: var(--cian); text-decoration: none; }
 }
 .bib-book:hover { background: rgba(124,58,237,.15); transform: translateY(-4px); }
 .bib-book-icon { font-size: 2.2rem; flex-shrink: 0; }
-.bib-book-body {}
 .bib-book-title { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #a78bfa; font-size: .95rem; margin-bottom: .35rem; }
 .bib-book-desc { font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; }
 
@@ -546,6 +575,11 @@ a { color: var(--cian); text-decoration: none; }
   border-radius: 20px;
   padding: 2.5rem;
   margin-bottom: 2.5rem;
+}
+
+.game-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
 }
 
 /* ── TRIVIA / GAME ── */
@@ -627,6 +661,22 @@ a { color: var(--cian); text-decoration: none; }
 .results-message { background: rgba(0,229,176,.08); border: 1px solid rgba(0,229,176,.2); border-radius: 16px; padding: 1.6rem; margin-bottom: 2rem; font-size: 1.08rem; line-height: 1.85; color: rgba(255,255,255,.85); }
 .results-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
+.confetti-canvas {
+  display: none;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.confetti-canvas {
+  display: none;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
 /* ── FOOTER ── */
 footer { background: var(--verde-selva); padding: 3rem 1.5rem; text-align: center; border-top: 1px solid rgba(0,229,176,.1); }
 .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.4rem; margin-bottom: .5rem; }
@@ -653,4 +703,29 @@ footer { background: var(--verde-selva); padding: 3rem 1.5rem; text-align: cente
 @media (max-width: 480px) {
   .profile-card { width: 170px; }
   .campo-grid { grid-template-columns: 1fr; }
+}
+
+/* ── CLASES DE UTILIDAD ── */
+.text-cian { color: var(--cian); }
+.m-0-auto { margin: 0 auto; }
+.text-ambar { color: var(--ambar); }
+.text-purple { color: #a78bfa; }
+.mt-1-2 { margin-top: 1.2rem; }
+
+.credits-text {
+  margin-top: 1.5rem;
+  font-size: .75rem;
+  color: rgba(255,255,255,.2);
+}
+
+.credits-text {
+  margin-top: 1.5rem;
+  font-size: .75rem;
+  color: rgba(255,255,255,.2);
+}
+
+.promo-text {
+  color: rgba(255,255,255,.65);
+  font-size: .95rem;
+  margin-bottom: .5rem;
 }
