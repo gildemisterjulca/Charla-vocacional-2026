@@ -9,7 +9,26 @@
 </head>
 <body>
 
+<audio id="backgroundMusic" src="assets/audio/no_one_else .mp3" loop></audio>
+
 <div class="pattern-bar"></div>
+
+<!-- ═══════════════════════════════════════
+     NAV STICKY
+════════════════════════════════════════ -->
+<nav class="section-nav" id="mainNav">
+  <div class="nav-links">
+    <span class="nav-label active" data-section="slidesSection" onclick="jumpSection('slidesSection')">📊 Exposición</span>
+    <span class="nav-label" data-section="campoSection" onclick="jumpSection('campoSection')">💼 Campo Laboral</span>
+    <span class="nav-label" data-section="bibliotecaSection" onclick="jumpSection('bibliotecaSection')">📚 Biblioteca</span>
+    <span class="nav-label" data-section="juegoPromoSection" onclick="jumpSection('juegoPromoSection')">🎮 Juego</span>
+    <span class="nav-label" data-section="gameSection" onclick="jumpSection('gameSection')">🧩 Trivia</span>
+  </div>
+  <button id="musicControlBtn" class="nav-music-btn">
+    <span class="icon-play">▶️</span>
+    <span class="icon-pause hidden">⏸️</span>
+  </button>
+</nav>
 
 <!-- ═══════════════════════════════════════
      HERO / PORTADA
@@ -108,17 +127,6 @@
 </section>
 
 <!-- ═══════════════════════════════════════
-     NAV STICKY
-════════════════════════════════════════ -->
-<nav class="section-nav" id="mainNav">
-  <span class="nav-label active" data-section="slidesSection" onclick="jumpSection('slidesSection')">📊 Exposición</span>
-  <span class="nav-label" data-section="campoSection" onclick="jumpSection('campoSection')">💼 Campo Laboral</span>
-  <span class="nav-label" data-section="bibliotecaSection" onclick="jumpSection('bibliotecaSection')">📚 Biblioteca</span>
-  <span class="nav-label" data-section="juegoPromoSection" onclick="jumpSection('juegoPromoSection')">🎮 Juego</span>
-  <span class="nav-label" data-section="gameSection" onclick="jumpSection('gameSection')">🧩 Trivia</span>
-</nav>
-
-<!-- ═══════════════════════════════════════
      EXPOSICIÓN — SLIDES
 ════════════════════════════════════════ -->
 <div id="slidesSection">
@@ -128,7 +136,7 @@
   <p class="section-desc"></p>
 
   <div class="slide-wrapper">
-    <div class="slide-progress"><div class="slide-progress-fill" id="slideProgress" style="width:12.5%"></div></div>
+    <div class="slide-progress"><div class="slide-progress-fill initial-progress" id="slideProgress"></div></div>
     <div class="slides-container">
 
       <!-- SLIDE 1 -->
@@ -275,6 +283,40 @@
     </div>
   </div>
 
+<!-- ═══════════════════════════════════════
+     GALERÍA DE LABORATORIOS
+════════════════════════════════════════ -->
+<section id="galeriaSection">
+  <div class="section-header">
+    <div class="section-label">🛰️ Infraestructura</div>
+    <h2 class="section-title">Nuestros <span class="text-cian">Laboratorios</span></h2>
+    <p class="section-desc m-0-auto">Contamos con espacios equipados para potenciar tu aprendizaje.</p>
+  </div>
+  <div class="galeria-grid">
+    <div class="galeria-item">
+      <img src="assets/imagenes/qr.svg" alt="Código QR para más información">
+      <div class="galeria-overlay">
+        <div class="galeria-icon">💻</div>
+        <div class="galeria-title">QR - Página Web</div>
+      </div>
+    </div>
+    <div class="galeria-item">
+      <img src="assets/imagenes/labo_2.svg" alt="Laboratorio de Cómputo 2">
+      <div class="galeria-overlay">
+        <div class="galeria-icon">🖥️</div>
+        <div class="galeria-title">Laboratorio 02</div>
+      </div>
+    </div>
+    <div class="galeria-item">
+      <img src="assets/imagenes/labo_3.jpeg" alt="Equipamiento Tecnológico">
+      <div class="galeria-overlay">
+        <div class="galeria-icon">🛠️</div>
+        <div class="galeria-title">Equipamiento</div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- Q&A de reflexión -->
   <div class="qna-panel">
     <h3>❓ Preguntas de Reflexión</h3>
@@ -379,7 +421,7 @@
       </div>
     </div>
   </div>
-  <div class="d-flex align-items-center gap-1-5rem flex-wrap">
+  <div class="bib-cta d-flex align-items-center gap-1-5rem flex-wrap">
     <div>
       <p class="text-white-65 font-sm mb-0-5rem">Accede al catálogo completo de la biblioteca de la UNIFSLB.</p>
     </div>
@@ -446,7 +488,14 @@
   <h2 class="section-title">Trivia: <span class="text-cian">¿Cuánto Sabes?</span></h2>
   <p class="section-desc">10 preguntas sobre la carrera y la UNIFSLB. ¡20 segundos por pregunta, responde rápido y suma más puntos!</p>
 
-  <div class="score-bar">
+  <div id="gameIntro">
+    <div class="game-intro-icon">🧩</div>
+    <h3 class="game-intro-title">¿Estás listo para el reto?</h3>
+    <p class="game-intro-desc">Pon a prueba tus conocimientos sobre la carrera de Educación Tecnológica. ¡Demuestra que tienes lo que se necesita para ser un futuro líder en tecnología educativa!</p>
+    <button class="btn btn-primary" id="startGameBtn">🚀 ¡Empezar a Jugar!</button>
+  </div>
+
+  <div class="score-bar d-none">
     <div class="score-item">
       <span class="score-icon">⭐</span>
       <div><div class="score-val" id="scoreDisplay">0</div><div class="score-label">Puntos</div></div>
@@ -468,7 +517,7 @@
     </div>
   </div>
 
-  <div id="questionArea">
+  <div id="questionArea" class="d-none">
     <div class="question-card" id="questionCard">
       <div class="q-cat" id="qCategory">Categoría</div>
       <div class="q-text" id="qText">Pregunta</div>
@@ -478,7 +527,7 @@
     </div>
   </div>
 
-  <div id="resultsScreen">
+  <div id="resultsScreen" class="d-none">
     <span class="results-trophy" id="resultsTrophy">🏆</span>
     <div class="results-score" id="finalScore">0</div>
     <div class="results-label" id="finalOutOf">de 150 puntos</div>
@@ -511,6 +560,17 @@
   </div>
 </footer>
 <div class="pattern-bar"></div>
+
+<!-- ═══════════════════════════════════════
+     MODAL LIGHTBOX PARA GALERÍA
+════════════════════════════════════════ -->
+<div id="lightboxModal" class="lightbox-modal">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightboxImage" alt="">
+  <div id="lightboxCaption"></div>
+</div>
+
+<audio id="backgroundMusic" src="assets/audio/no_one_else .mp3" loop></audio>
 
 <script src="js/main.js"></script>
 </body>

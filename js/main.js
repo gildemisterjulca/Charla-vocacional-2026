@@ -302,4 +302,50 @@ window.addEventListener('scroll', () => {
 });
 
 /* INIT */
-startGame();
+document.addEventListener('DOMContentLoaded', () => {
+  const startGameBtn = document.getElementById('startGameBtn');
+  const gameIntro = document.getElementById('gameIntro');
+  const questionArea = document.getElementById('questionArea');
+  const scoreBar = document.querySelector('.score-bar');
+
+  if (startGameBtn) {
+    startGameBtn.addEventListener('click', () => {
+      if (gameIntro) gameIntro.style.display = 'none';
+      if (scoreBar) scoreBar.style.display = 'flex';
+      if (questionArea) questionArea.style.display = 'block';
+      startGame();
+    });
+  }
+
+  /* ── MUSIC CONTROL ── */
+  const musicControlBtn = document.getElementById('musicControlBtn');
+  const backgroundMusic = document.getElementById('backgroundMusic');
+
+  if (musicControlBtn && backgroundMusic) {
+      const iconPlay = musicControlBtn.querySelector('.icon-play');
+      const iconPause = musicControlBtn.querySelector('.icon-pause');
+
+      musicControlBtn.addEventListener('click', () => {
+        if (backgroundMusic.paused) {
+            const playPromise = backgroundMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // La reproducción comenzó exitosamente
+                    if(iconPlay) iconPlay.style.display = 'none';
+                    if(iconPause) iconPause.style.display = 'inline';
+                }).catch(error => {
+                    // La reproducción fue bloqueada
+                    console.error("La reproducción de audio fue bloqueada por el navegador:", error);
+                    // No cambiamos el ícono porque la música no está sonando
+                    if(iconPlay) iconPlay.style.display = 'inline';
+                    if(iconPause) iconPause.style.display = 'none';
+                });
+            }
+        } else {
+            backgroundMusic.pause();
+            if(iconPlay) iconPlay.style.display = 'inline';
+            if(iconPause) iconPause.style.display = 'none';
+        }
+    });
+  }
+});
