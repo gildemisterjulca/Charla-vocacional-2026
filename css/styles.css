@@ -88,6 +88,45 @@ a { color: var(--cian); text-decoration: none; }
 }
 .btn-secondary:hover { background: rgba(255,255,255,.15); }
 
+.section-desc,
+.game-start-desc,
+.results-message {
+  line-height: 1.9;
+}
+
+.btn-next-q {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: .95rem;
+  cursor: pointer;
+  border: 1px solid var(--cian);
+  background: linear-gradient(135deg, rgba(0, 229, 176, 0.15), rgba(30, 168, 122, 0.2));
+  color: var(--blanco);
+  box-shadow: 0 5px 20px rgba(0, 229, 176, 0.1);
+  transition: all var(--trans);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: .03em;
+  margin-top: 1.5rem;
+}
+.btn-next-q::after {
+  content: '→';
+  font-size: 1.2rem;
+  transition: transform var(--trans);
+}
+.btn-next-q:hover {
+  background: linear-gradient(135deg, var(--cian), var(--verde-vivo));
+  color: var(--oscuro);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 229, 176, 0.4);
+}
+.btn-next-q:hover::after {
+  transform: translateX(4px);
+}
+
 /* ── SECCIÓN GENÉRICA ── */
 .section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
 .section-label {
@@ -135,66 +174,59 @@ a { color: var(--cian); text-decoration: none; }
 }
 .galeria-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 .galeria-item {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radio);
-  aspect-ratio: 4 / 3;
+  border-radius: 12px;
   cursor: pointer;
-  transition: transform var(--trans);
+  box-shadow: 0 10px 20px rgba(0,0,0,.1);
+  transition: transform .3s ease, box-shadow .3s ease;
+  aspect-ratio: 1 / 1;
 }
 .galeria-item:hover {
-  transform: scale(1.03);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0,0,0,.15);
 }
 .galeria-item img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  transition: transform .6s ease;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
 }
 .galeria-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .galeria-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(8,26,18,.8) 0%, transparent 70%);
+  background: linear-gradient(to top, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 1.5rem;
-  opacity: 0;
-  transition: opacity var(--trans);
+  color: #fff;
+  transition: background .3s ease;
 }
 .galeria-item:hover .galeria-overlay {
-  opacity: 1;
+  background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,0) 100%);
 }
 .galeria-icon {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: .5rem;
-  transform: translateY(20px);
-  transition: transform .4s ease;
 }
 .galeria-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--blanco);
-  transform: translateY(20px);
-  transition: transform .5s ease;
-}
-.galeria-item:hover .galeria-icon,
-.galeria-item:hover .galeria-title {
-  transform: translateY(0);
+  font-size: 1.1rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,.5);
 }
 
-/* ═══════════════════════════════════════
-     MODAL LIGHTBOX
-════════════════════════════════════════ */
-.lightbox-modal {
+/* Estilos del Modal */
+.modal {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -204,27 +236,19 @@ a { color: var(--cian); text-decoration: none; }
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(8, 26, 18, 0.95);
-  animation: fadeIn .5s;
+  background-color: rgba(0,0,0,0.9);
+  animation: fadeIn .3s ease;
 }
-.lightbox-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 900px;
-  animation: zoomIn .5s;
-}
-#lightboxCaption {
+
+.modal-content {
   margin: auto;
   display: block;
   width: 80%;
   max-width: 700px;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 150px;
+  animation: zoomIn .3s ease;
 }
-.lightbox-close {
+
+.modal-close {
   position: absolute;
   top: 15px;
   right: 35px;
@@ -234,13 +258,15 @@ a { color: var(--cian); text-decoration: none; }
   transition: 0.3s;
   cursor: pointer;
 }
-.lightbox-close:hover,
-.lightbox-close:focus {
+
+.modal-close:hover,
+.modal-close:focus {
   color: #bbb;
   text-decoration: none;
 }
+
 @keyframes zoomIn {
-  from {transform: scale(0.8)}
+  from {transform: scale(0)}
   to {transform: scale(1)}
 }
 
@@ -745,7 +771,7 @@ a { color: var(--cian); text-decoration: none; }
 
 /* ── JUEGO INTERACTIVO SECCIÓN ── */
 #juegoPromoSection {
-  background: linear-gradient(180deg, #0a1a10 0%, #0a1f30 100%);
+  background: linear-gradient(180deg, #0a1a10 0%, #08140e 100%);
   padding: 5rem 0;
 }
 .juego-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; text-align: center; }
@@ -785,16 +811,13 @@ a { color: var(--cian); text-decoration: none; }
   padding: 5rem 0;
 }
 #gameSection .section { max-width: 820px; }
-
 #gameIntro {
   text-align: center;
-  background: rgba(0, 229, 176, .05);
-  border: 1px solid rgba(0, 229, 176, .1);
-  border-radius: 16px;
+  background: transparent;
+  border: none;
   padding: 2.5rem 2rem;
   margin-bottom: 2.5rem;
-}
-.game-intro-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+}.game-intro-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 .game-intro-title { font-size: 1.5rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--cian); margin-bottom: .5rem; }
 .game-intro-desc { color: rgba(255,255,255,.7); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.7; }
 
@@ -888,7 +911,12 @@ a { color: var(--cian); text-decoration: none; }
 }
 
 /* ── FOOTER ── */
-footer { background: var(--verde-selva); padding: 3rem 1.5rem; text-align: center; border-top: 1px solid rgba(0,229,176,.1); }
+footer {
+  background: var(--verde-selva);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(0,229,176,.1);
+}
 .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.4rem; margin-bottom: .5rem; }
 .footer-logo span { color: var(--cian); }
 .footer-sub { color: rgba(255,255,255,.5); font-size: .88rem; margin-bottom: 1.5rem; line-height: 1.7; }

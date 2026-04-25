@@ -301,14 +301,14 @@
       </div>
     </div>
     <div class="galeria-item">
-      <img src="assets/imagenes/labo_2.svg" alt="Laboratorio de Cómputo 2">
+      <img src="assets/imagenes/practica.jpeg" alt="Laboratorio de Cómputo 2">
       <div class="galeria-overlay">
         <div class="galeria-icon">🖥️</div>
         <div class="galeria-title">Laboratorio 02</div>
       </div>
     </div>
     <div class="galeria-item">
-      <img src="assets/imagenes/labo_3.jpeg" alt="Equipamiento Tecnológico">
+      <img src="assets/imagenes/en_clases.jpeg" alt="Equipamiento Tecnológico">
       <div class="galeria-overlay">
         <div class="galeria-icon">🛠️</div>
         <div class="galeria-title">Equipamiento</div>
@@ -480,78 +480,76 @@
 <div class="divider"></div>
 
 <!-- ═══════════════════════════════════════
-     TRIVIA / GAME INTERNO
+     TRIVIA / JUEGO
 ════════════════════════════════════════ -->
-<section id="gameSection">
-<div class="section">
-  <div class="section-label">🧩 Test de Conocimientos</div>
-  <h2 class="section-title">Trivia: <span class="text-cian">¿Cuánto Sabes?</span></h2>
-  <p class="section-desc">10 preguntas sobre la carrera y la UNIFSLB. ¡20 segundos por pregunta, responde rápido y suma más puntos!</p>
-
-  <div id="gameIntro">
-    <div class="game-intro-icon">🧩</div>
-    <h3 class="game-intro-title">¿Estás listo para el reto?</h3>
-    <p class="game-intro-desc">Pon a prueba tus conocimientos sobre la carrera de Educación Tecnológica. ¡Demuestra que tienes lo que se necesita para ser un futuro líder en tecnología educativa!</p>
-    <button class="btn btn-primary" id="startGameBtn">🚀 ¡Empezar a Jugar!</button>
-  </div>
-
-  <div class="score-bar d-none">
-    <div class="score-item">
-      <span class="score-icon">⭐</span>
-      <div><div class="score-val" id="scoreDisplay">0</div><div class="score-label">Puntos</div></div>
-    </div>
-    <div class="score-item">
-      <span class="score-icon">📋</span>
-      <div><div class="score-val" id="questionCounter">1 / 10</div><div class="score-label">Pregunta</div></div>
-    </div>
-    <div class="score-item">
-      <span class="score-icon">🔥</span>
-      <div><div class="score-val" id="streakDisplay">0</div><div class="score-label">Racha</div></div>
-    </div>
-    <div class="timer-ring">
-      <svg width="52" height="52" viewBox="0 0 52 52">
-        <circle class="timer-bg" cx="26" cy="26" r="22"/>
-        <circle class="timer-fg" id="timerRing" cx="26" cy="26" r="22" stroke-dasharray="138.23" stroke-dashoffset="0"/>
-      </svg>
-      <div class="timer-text" id="timerText">20</div>
+<section id="gameSection" class="section">
+  <div id="gameIntro" class="text-center">
+    <div class="section-label">⭐ Test de Conocimientos</div>
+    <h2 class="section-title">Trivia: <span class="text-cian">¿Cuánto Sabes?</span></h2>
+    <p class="section-desc">
+      10 preguntas sobre la carrera y la UNIFSLB. 20 segundos por pregunta,
+      ¡responde rápido y suma más puntos!
+    </p>
+    <div class="game-start-box">
+      <div class="game-start-icon">🧩</div>
+      <h3 class="game-start-title">¿Estás listo para el reto?</h3>
+      <p class="game-start-desc">
+        Pon a prueba tus conocimientos sobre la carrera de Educación Tecnológica. ¡Demuestra que tienes lo que se necesita para ser un futuro líder en tecnología educativa!
+      </p>
+      <button id="startGameBtn" class="btn btn-primary">
+        <span class="icon">🕹️</span> ¡Empezar a Jugar!
+      </button>
     </div>
   </div>
 
-  <div id="questionArea" class="d-none">
-    <div class="question-card" id="questionCard">
-      <div class="q-cat" id="qCategory">Categoría</div>
-      <div class="q-text" id="qText">Pregunta</div>
-      <div class="options-grid" id="optionsGrid"></div>
-      <div class="feedback-toast" id="feedbackToast"></div>
-      <button class="next-btn" id="nextQBtn" onclick="nextQuestion()">Siguiente pregunta →</button>
+  <div id="questionArea" style="display: none;">
+    <div class="score-bar">
+      <div class="score-item">Puntaje: <span id="scoreDisplay">0</span></div>
+      <div class="score-item">Racha: <span id="streakDisplay">0</span> 🔥</div>
+      <div class="timer">
+        <svg class="timer-svg" viewBox="0 0 50 50">
+          <circle class="timer-bg-ring" cx="25" cy="25" r="22"></circle>
+          <circle id="timerRing" class="timer-fg-ring" cx="25" cy="25" r="22"></circle>
+        </svg>
+        <span id="timerText">20</span>
+      </div>
     </div>
+    <div id="questionCard">
+      <div id="questionCounter">1 / 10</div>
+      <div id="qCategory">Categoría</div>
+      <p id="qText">Cargando pregunta...</p>
+      <div id="optionsGrid"></div>
+      <div id="feedbackToast" style="display: none;"></div>
+    </div>
+    <button id="nextQBtn" class="btn-next-q" style="display: none;">Siguiente Pregunta</button>
   </div>
 
-  <div id="resultsScreen" class="d-none">
-    <span class="results-trophy" id="resultsTrophy">🏆</span>
-    <div class="results-score" id="finalScore">0</div>
-    <div class="results-label" id="finalOutOf">de 150 puntos</div>
-    <div class="results-message" id="resultsMessage"></div>
-    <div class="results-btns">
-      <button class="btn btn-primary" onclick="restartGame()">🔄 Jugar de nuevo</button>
-      <button class="btn btn-secondary" onclick="jumpSection('slidesSection')">📊 Repasar diapositivas</button>
+  <div id="resultsScreen" style="display: none;">
+    <div class="results-box">
+      <div id="resultsTrophy">🏆</div>
+      <h2 class="results-title">¡Juego Terminado!</h2>
+      <p class="results-score-label">Tu puntaje final es:</p>
+      <div id="finalScore">0</div>
+      <div id="finalOutOf"></div>
+      <p id="resultsMessage"></p>
+      <button onclick="restartGame()" class="btn btn-primary">
+        <span class="icon">🔄</span> Jugar de Nuevo
+      </button>
     </div>
   </div>
-
-</div>
 </section>
 
 <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
 
 <!-- FOOTER -->
-<footer>
+<footer class="footer">
   <div class="footer-logo">UNI<span>FSL</span>B</div>
   <div class="footer-sub">Universidad Nacional Intercultural Fabiola Salazar Leguía de Bagua · Amazonas, Perú<br>
   Jirón Ancash N° 520, Bagua · (+51) 939 571 296<br>
   Proyecto: "Construyendo mi Futuro Profesional"</div>
   <div class="footer-links">
     <a href="https://www.unibagua.edu.pe" target="_blank" rel="noopener">🌐 Sitio Oficial</a>
-    <a href="https://www.unibagua.edu.pe/academico/admision/examen-ordinario" target="_blank" rel="noopener">📝 Admisión 2026-I</a>
+    <a href="https://www.unibagua.edu.pe/academico/admision/examen-ordinario" target="_blank" rel="noopener">📝 Admisión 2025-I</a>
     <a href="https://www.facebook.com/unifslboficial" target="_blank" rel="noopener">📘 Facebook</a>
     <a href="https://www.youtube.com/@unifslb-oficial/playlists" target="_blank" rel="noopener">▶️ YouTube</a>
   </div>
@@ -573,5 +571,12 @@
 <audio id="backgroundMusic" src="assets/audio/no_one_else .mp3" loop></audio>
 
 <script src="js/main.js"></script>
+
+<!-- Modal para la galería -->
+<div id="imageModal" class="modal">
+  <span class="modal-close">&times;</span>
+  <img class="modal-content" id="modalImage" alt="Imagen ampliada de la galería">
+</div>
+
 </body>
 </html>

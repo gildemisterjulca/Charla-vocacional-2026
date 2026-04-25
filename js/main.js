@@ -144,9 +144,11 @@ function shuffleArray(arr) { return [...arr].sort(() => Math.random() - .5); }
 
 function startGame() {
   shuffledQ = shuffleArray(questions); currentQ = 0; score = 0; streak = 0; answered = false;
+  document.getElementById('gameIntro').style.display = 'none';
   document.getElementById('questionArea').style.display = 'block';
   document.getElementById('resultsScreen').style.display = 'none';
-  updateScore(); renderQuestion();
+  updateScore(); 
+  renderQuestion();
 }
 
 function renderQuestion() {
@@ -303,18 +305,46 @@ window.addEventListener('scroll', () => {
 
 /* INIT */
 document.addEventListener('DOMContentLoaded', () => {
+  /* ── GALERÍA MODAL ── */
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const galleryItems = document.querySelectorAll(".galeria-item");
+  const closeModal = document.getElementsByClassName("modal-close")[0];
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const img = this.querySelector('img');
+      if (img) {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      }
+    });
+  });
+
+  if (closeModal) {
+    closeModal.onclick = function() {
+      modal.style.display = "none";
+    }
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
   const startGameBtn = document.getElementById('startGameBtn');
   const gameIntro = document.getElementById('gameIntro');
   const questionArea = document.getElementById('questionArea');
   const scoreBar = document.querySelector('.score-bar');
 
   if (startGameBtn) {
-    startGameBtn.addEventListener('click', () => {
-      if (gameIntro) gameIntro.style.display = 'none';
-      if (scoreBar) scoreBar.style.display = 'flex';
-      if (questionArea) questionArea.style.display = 'block';
-      startGame();
-    });
+    startGameBtn.addEventListener('click', startGame);
+  }
+
+  const nextQBtn = document.getElementById('nextQBtn');
+  if (nextQBtn) {
+    nextQBtn.addEventListener('click', nextQuestion);
   }
 
   /* ── MUSIC CONTROL ── */
